@@ -1,2 +1,1 @@
-# Selenium-Sample-Scripts
-Example files for running selenium tests using frameworks
+# Selenium Sample Scripts for CrossBrowserTesting.com
