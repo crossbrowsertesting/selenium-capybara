@@ -157,7 +157,7 @@ Feature: Login to My Webapp
 
 And there we go, our first successful test using Capybara and CBT. Start writing your own tests and see them run in the cloud!
 
-##Local Connection
+## Local Connection
 
 In the same directory as your env.rb file, let's create a new file called tunnel.rb. Copy the following code into that file:
 
