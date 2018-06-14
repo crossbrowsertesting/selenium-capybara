@@ -22,7 +22,7 @@ gem install rest-client
 Now we're ready to get started. From your terminal, navigate to a new directory where we can start writing our tests. The first thing you'll need to do is run the following command:
 
 ```
-cucumber init
+cucumber --init
 ```
 
 This will create a features directory where we can place our step definitions. I'd suggest cloning this repository so you can make use of the tunnel setup methods already written. To setup the CBT environment, create a file called env.rb, and copy the below code into it:
