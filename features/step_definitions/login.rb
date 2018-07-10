@@ -17,5 +17,5 @@ Then(/^I will click the login button$/) do
 end
 
 Then(/^I should see "(.*?)"$/) do |expectedText|
-    assert page.has_content?(expectedText)
+    assert_text(expectedText)
 end

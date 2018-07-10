@@ -9,7 +9,7 @@ def start_tunnel(username, authkey)
     puts 'Running cbt_tunnels'
     tunnel = fork do
       tunnel_user = username.sub('%40', '@')
-      proc = "cbt_tunnels --username " + tunnel_user + ' --authkey ' + 'selenium > tunnel.log'
+      proc = "cbt_tunnels --username " + tunnel_user + ' --authkey ' + authkey + ' > tunnel.log'
       exec proc
     end
     Process.detach(tunnel)
@@ -17,10 +17,9 @@ def start_tunnel(username, authkey)
     begin
       response = RestClient.get('https://' + username + ':' + authkey + '@crossbrowsertesting.com/api/v3/tunnels?num=1')
       response = JSON.parse(response)
-
       puts response['tunnels'][0]['state']
       tunnel_state = response['tunnels'][0]['state']
-      sleep(2.0)
+      sleep(4.0)
     end while (tunnel_state != 'running')
   end 
 end
