@@ -195,7 +195,7 @@ This code requires our Node.js module in order to run. You can install it by usi
 
 Windows: `npm install -g cbt_tunnels`
 
-Mac/Linux: `npm install -g cbt_tunnels`
+Mac/Linux: `sudo npm install -g cbt_tunnels`
 
 If you don't have npm, you can download it here: https://nodejs.org/en/
 
