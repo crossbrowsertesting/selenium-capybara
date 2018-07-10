@@ -160,7 +160,7 @@ And there we go, our first successful test using Capybara and CBT. Start writing
 
 ## Local Connection
 
-If you need to test a local site, you can use our [local connection](https://help.crossbrowsertesting.com/local-connection/general/local-tunnel-overview/) to allow our devices to access it. You can start a tunnel manually using one of the methods in that link, or you can use the code below to automatically start the tunnel.
+If you need to test a local site, you can use our [local connection](https://help.crossbrowsertesting.com/local-connection/general/local-tunnel-overview/) to allow our devices to access it. You can start a local connection manually using one of the methods in that link, or you can use the code below to automatically start the local connection tunnel.
 
 In the same directory as your env.rb file, let's create a new file called tunnel.rb. Copy the following code into that file:
 
@@ -192,8 +192,11 @@ def start_tunnel(username, authkey)
 end
 ```
 This code requires our Node.js module in order to run. You can install it by using the following command:
+
 Windows: `npm install -g cbt_tunnels`
+
 Mac/Linux: `npm install -g cbt_tunnels`
+
 If you don't have npm, you can download it here: https://nodejs.org/en/
 
 Now if we uncomment the corresponding lines (3 and 8) in our env.rb file, we should see that our script starts a local connection if it doesn't already see one running. Now you can run tests to any resources located on your local network.
