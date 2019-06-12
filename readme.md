@@ -47,7 +47,7 @@ Capybara.register_driver 'selenium_remote_cctest'.to_sym do |app|
   caps['platform'] = 'Mac OSX 10.12'
   caps['screen_resolution'] = '1366x768'
   caps['record_video'] = 'true'
-  caps['record_network'] = 'true'   
+  caps['record_network'] = 'false'   
 
   Capybara::Selenium::Driver.new(app,
                                  :browser => :remote,
@@ -60,14 +60,14 @@ Capybara.app_host = "http://www.yourawesomewebsite.com"
 Capybara.run_server = false
 ```
 
-The above code will allow us to start a RemoteWebDriver pointed at our hub. Be sure to change the file to contain your username and the authkey found on the [Selenium Dashboard](https://app.crossbrowsertesting.com/selenium/run) in our app. 
+The above code will allow us to start a RemoteWebDriver pointed at our hub. Be sure to change the file to contain your username and the authkey found on the [Selenium Dashboard](https://app.crossbrowsertesting.com/selenium/run) in our app.
 Also note that lines 3 and 8 (`require_relative 'tunnel'` and `start_tunnel(username,authkey)`) are commented out. If you need to start a local connection to test behind your firewall, please refer to the section labeled "Local Connection" at the bottom of this document after you have set up your tests.
 
 From here, we can begin to create our test features. If you're still in the features directory, create a new file called testLogin.feature. Here is where we'll create the steps for our test case in Cucumber's plain english style [Gherkin language](https://github.com/cucumber/cucumber/wiki/Gherkin). Your file should look something like this:
 
 ```
 Feature: Login to My Webapp
- 
+
 Scenario: Fill in a Login Form        
  Given I visit a login form
  Then I will enter my username "tester@crossbrowsertesting.com"
@@ -188,7 +188,7 @@ def start_tunnel(username, authkey)
       tunnel_state = response['tunnels'][0]['state']
       sleep(4.0)
     end while (tunnel_state != 'running')
-  end 
+  end
 end
 ```
 This code requires our Node.js module in order to run. You can install it by using the following command:
@@ -201,4 +201,4 @@ If you don't have npm, you can download it here: https://nodejs.org/en/
 
 Now if we uncomment the corresponding lines (3 and 8) in our env.rb file, we should see that our script starts a local connection if it doesn't already see one running. Now you can run tests to any resources located on your local network.
 
-If you have any trouble getting your automated scripts setup and running on our environment, don't hesitate to [reach out to us](mailto:support@crossbrowsertesting.com). We're happy to help. 
+If you have any trouble getting your automated scripts setup and running on our environment, don't hesitate to [reach out to us](mailto:support@crossbrowsertesting.com). We're happy to help.
