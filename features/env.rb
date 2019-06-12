@@ -17,7 +17,7 @@ Capybara.register_driver 'selenium_remote_cctest'.to_sym do |app|
   caps['platform'] = 'Mac OSX 10.12'
   caps['screen_resolution'] = '1366x768'
   caps['record_video'] = 'true'
-  caps['record_network'] = 'true'   
+  caps['record_network'] = 'false'   
 
   Capybara::Selenium::Driver.new(app,
                                  :browser => :remote,
